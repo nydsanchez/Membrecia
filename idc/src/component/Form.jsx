@@ -1,5 +1,7 @@
 import { useState } from "react";
 import validation from "../js/validation";
+import logo from "../assets/logo.jpg";
+import "./login.css";
 
 const Form = ({ login }) => {
   const [userData, setUserData] = useState({
@@ -20,29 +22,13 @@ const Form = ({ login }) => {
   };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "space-evenly",
-        alignItems: "center",
-        margin: "5rem 0",
-      }}
-    >
+    <main>
       <section id="img_inicio">
-        <img src="../imgages/logo.jpg" alt="logo" />
+        <img src={logo} alt="logo" />
       </section>
-      <section
-        style={{
-          width: "350px",
-          height: "400px",
-          margin: "0 1rem",
-          padding: "0 1rem",
-          boxShadow: "0px 0px 20px black",
-        }}
-      >
+      <section id="login_form">
+        <h2>Inicio de Sesión</h2>
         <form onSubmit={handleSubmit}>
-          <br />
-          <h2>Inicio de Sesión</h2>
           <label>Usuario</label>
           <input
             type="text"
@@ -59,23 +45,19 @@ const Form = ({ login }) => {
             <p>{errors.e3} </p>
           )}
 
-          <br />
-          <br />
           <label>Contraseña</label>
           <input
             type="password"
-            name="psw_user"
+            name="psd"
             value={userData.psd}
             onChange={handleChange}
           />
           {errors.p1 ? <p>{errors.p1}</p> : <p>{errors.p2}</p>}
-          <br />
-          <br />
 
           <button>INGRESAR</button>
         </form>
       </section>
-    </div>
+    </main>
   );
 };
 export default Form;

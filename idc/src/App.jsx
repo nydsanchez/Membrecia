@@ -3,6 +3,7 @@ import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 
 import Form from "./component/Form";
 import Menu from "./component/Menu";
+import Title from "./component/Title";
 import Dashboard from "./component/Dashboard";
 
 const EMAIL = "h@gmail.com";
@@ -55,6 +56,8 @@ const membrecia = [
 
 function App() {
   const [access, setAccess] = useState(false);
+  const [menu, setMenu] = useState("");
+
   const navigate = useNavigate();
   const { pathname } = useLocation();
 
@@ -62,15 +65,56 @@ function App() {
     if (userData.psd === PASSWORD && userData.email === EMAIL) {
       setAccess(true);
       navigate("/home");
+    } else {
+      alert(
+        "El usuario o contraseña que introdujo no es correcta, por favor introduzca su usuario y contrasena"
+      );
     }
   };
 
   useEffect(() => {
     !access && navigate("/");
   }, [access, navigate]);
+
+  function handleMenu(e) {
+    setMenu(e);
+    switch (e) {
+      case "iglesia":
+        navigate("/iglesia");
+        break;
+      case "miembros":
+        navigate("/miembros");
+        break;
+      case "grupos":
+        navigate("/grupos");
+        break;
+      case "eventos":
+        navigate("/eventos");
+        break;
+      case "visitas":
+        navigate("/visitas");
+        break;
+      case "ingreso":
+        navigate("/ingresos");
+        break;
+      case "egreso":
+        navigate("/egresos");
+        break;
+
+      default:
+        navigate("/home");
+        break;
+    }
+  }
+
   return (
-    <div className="app">
-      {pathname !== "/" && <Menu />}
+    <div className={pathname === "/" ? "" : "app"}>
+      {pathname !== "/" && (
+        <>
+          <Menu menu={menu} onclick={handleMenu} />
+          <Title />
+        </>
+      )}
       <Routes>
         <Route path="/" element={<Form login={login} />} />
         <Route path="/home" element={<Dashboard membrecia={membrecia} />} />

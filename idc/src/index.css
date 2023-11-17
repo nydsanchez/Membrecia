@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Lugrasimo&family=Mulish:wght@300;500&display=swap");
+
 :root {
   --color-lightest: #fff4e6;
   --color-light: #ffe8cc;
@@ -6,17 +8,12 @@
 }
 
 body {
-  height: auto;
-  color: #495057;
-  margin: 0;
+  background-color: white;
+  color: #042e54;
+  font-family: "Mulish", sans-serif;
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-html {
-  font-size: 62.5%;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 * {
@@ -28,20 +25,28 @@ html {
 .app {
   display: grid;
   width: 100%;
-  height: 250px;
   grid-template-areas:
     "head head"
-    "nav  title"
     "nav  main"
     "nav  foot";
-  grid-template-rows: 100px 40px 510px 30px;
-  grid-template-columns: 150px 1fr;
+  grid-template-rows: 100px auto 50px;
+  grid-template-columns: 12.5% 87.5%;
   text-align: center;
 }
 
+h3 {
+  text-align: center;
+  width: 100%;
+  font-size: medium;
+}
+
+/*  HEADER SECTION  */
 .app > header {
   grid-area: head;
   display: flex;
+  position: fixed;
+  top: 0;
+  left: 10px;
   align-items: center;
   background-color: #042e54;
   color: #fff;
@@ -53,75 +58,46 @@ header h1 {
   width: 100%;
   font-size: xx-large;
 }
+header img {
+  width: 152px;
+  height: 100px;
+}
+
+/*  ASIDE MENU  */
 .app > nav {
   grid-area: nav;
   border-right: 1px solid gainsboro;
-}
-.app > section {
-  grid-area: title;
-  background-color: #ffffff;
-}
-
-.app > aside {
-  grid-area: form;
-  background-color: #ffffff;
-}
-
-h2 {
-  padding-top: 2rem;
-  text-align: center;
-  line-height: 5px;
-  width: 100%;
-  font-size: large;
-  color: var(--color-medium);
-}
-
-h3 {
-  text-align: center;
-
-  width: 100%;
-  font-size: medium;
-}
-
-.app > main {
-  grid-area: main;
-  background-color: #ffffff;
-}
-
-.app > footer {
-  grid-area: foot;
-  background-color: var(--color-medium);
-}
-
-footer p {
-  line-height: 3rem;
-  color: black;
-}
-main,
-aside {
   display: flex;
-  justify-content: space-evenly;
-  align-items: flex-start;
-  margin-top: 5rem;
+  flex-direction: column;
+  padding-top: 2rem;
+  padding-left: 3px;
+  position: fixed;
+  top: 80px;
+  left: 3px;
+  width: 12.5%;
+  height: 100vh;
 }
-
-nav ul {
-  list-style: none;
-}
-
-nav li {
-  text-decoration: none;
-  display: block;
+nav button {
+  border: none;
   border-bottom: 1px solid #222;
-  padding-bottom: 5px;
+  background-color: white;
   color: #042e54;
-  font-size: 1.5rem;
+  font-size: 1rem;
   text-align: start;
 }
 
-nav li:hover {
+nav button:hover {
   background-color: #042e54;
   color: #fff;
+}
+
+/* MAIN SECTION*/
+.app > main {
+  grid-area: main;
+  background-color: #ffffff;
+  width: 100%;
+  padding: 0.8rem;
+  margin: 1rem;
 }
 
 main ul {
@@ -144,6 +120,20 @@ main li:hover {
   background-color: var(--color-medium);
 }
 
+/* FOOTER SECTION*/
+.app > footer {
+  grid-area: foot;
+  background-color: var(--color-medium);
+  margin: 3px;
+  padding: 1rem;
+}
+
+footer p {
+  line-height: 3rem;
+  color: black;
+}
+
+/* 
 .container {
   display: flex;
   flex-direction: column;
@@ -181,9 +171,10 @@ aside ul li {
 .sidebar li .button {
   grid-row: span 2;
   grid-column: 3;
-}
+} 
 
 .sidebar > .button {
   float: right;
   margin-right: 1.2rem;
 }
+*/
