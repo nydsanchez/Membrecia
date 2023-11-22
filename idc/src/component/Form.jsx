@@ -22,7 +22,7 @@ const Form = ({ login }) => {
   };
 
   return (
-    <main>
+    <main className="login">
       <section id="img_inicio">
         <img src={logo} alt="logo" />
       </section>

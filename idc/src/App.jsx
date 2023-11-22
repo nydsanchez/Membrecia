@@ -4,6 +4,7 @@ import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import Form from "./component/Form";
 import Menu from "./component/Menu";
 import Title from "./component/Title";
+import FormMiembros from "./component/IngresoMiembros";
 import Dashboard from "./component/Dashboard";
 
 const EMAIL = "h@gmail.com";
@@ -111,13 +112,14 @@ function App() {
     <div className={pathname === "/" ? "" : "app"}>
       {pathname !== "/" && (
         <>
-          <Menu menu={menu} onclick={handleMenu} />
-          <Title />
+          <Menu menu={menu} onClick={handleMenu} />
+          <Title> Sistema de Administración de Membresía</Title>
         </>
       )}
       <Routes>
         <Route path="/" element={<Form login={login} />} />
         <Route path="/home" element={<Dashboard membrecia={membrecia} />} />
+        <Route path="/ingresos" element={<FormMiembros />} />
       </Routes>
     </div>
   );

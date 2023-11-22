@@ -1,4 +1,4 @@
-const Menu = ({ onclick }) => {
+const Menu = ({ onClick }) => {
   return (
     <nav>
       <button id="inicio" onClick={(e) => onClick(e.target.id)}>

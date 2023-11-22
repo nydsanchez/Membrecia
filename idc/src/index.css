@@ -26,7 +26,7 @@ body {
   display: grid;
   width: 100%;
   grid-template-areas:
-    "head head"
+    "head header"
     "nav  main"
     "nav  foot";
   grid-template-rows: 100px auto 50px;
@@ -42,20 +42,20 @@ h3 {
 
 /*  HEADER SECTION  */
 .app > header {
-  grid-area: head;
+  grid-area: header;
   display: flex;
-  position: fixed;
-  top: 0;
-  left: 10px;
   align-items: center;
   background-color: #042e54;
   color: #fff;
+  position: fixed;
+  top: 0;
+  left: 10px;
 }
 
 header h1 {
   text-align: center;
   color: white;
-  width: 100%;
+  width: 100vw;
   font-size: xx-large;
 }
 header img {
@@ -103,9 +103,10 @@ nav button:hover {
 main ul {
   list-style: none;
   display: flex;
-
   gap: 6rem;
   font-size: 1.4rem;
+  margin-top: 3rem;
+  justify-content: center;
 }
 
 main li {

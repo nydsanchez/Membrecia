@@ -1,10 +1,10 @@
 import logo from "../assets/logo.jpg";
 
-const Title = () => {
+const Title = ({ children }) => {
   return (
     <header>
       <img src={logo} alt="logo" />
-      <h1>Sistema de Administración de Membresía</h1>
+      <h1>{children}</h1>
     </header>
   );
 };
